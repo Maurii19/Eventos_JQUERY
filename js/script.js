@@ -16,7 +16,7 @@ $(document).ready(function() {
 		alert('Acceso Denegado');
 	});
 	//borrar div y aparece borrado
-	$('div').click(function() {
+	$('#elementodiv').click(function() {
 		$(this).html('<p>Borrado</p>');
 	});
 
@@ -38,13 +38,44 @@ $(document).ready(function() {
 	
 
 
+//Ejercicio 3
+
+//deshabilitar para imagen
+$('.imagen').mousedown(function(e){
+      if(e.which == 3){
+        alert('Click derecho deshabilitado.');
+      }
+  });
+
+//Deshabilitar para texto
+$.fn.extend({ 
+    disableSelection: function() { 
+        this.each(function() { 
+            if (typeof this.onselectstart != 'undefined') {
+                    this.onselectstart = function() {
+                    	alert("Seleccion de texto deshabilitado");	
+                     	return false; 
+
+            		};
+            }else if (typeof this.style.MozUserSelect != 'undefined') {
+                     this.style.MozUserSelect = 'none';
+           } else {
+                    this.onmousedown = function() {
+                    	return false; 
+                    };
+                  }
+                    }); 
+                } 
+            });
+ 
+          
+                
+$('.texto').disableSelection();
+
 // Ejercicio 4
 
 
-
-
 // Ejercicio 5
-
 
 
 // Ejercicio 6
@@ -118,42 +149,8 @@ $(document).ready(function() {
 
 	});     
 
-});
-
-//Ejercicio 3
-	$(document).ready(function() {
-		$(function(){
-		    $(document).bind("contextmenu",function(e){
-		    	alert("Click derecho deshabilitado");
-		        return false;
-		    });
 
 
 
-	});
-
-   $.fn.extend({ 
-                disableSelection: function() { 
-                    this.each(function() { 
-                        if (typeof this.onselectstart != 'undefined') {
-                            this.onselectstart = function() {
-                            alert("Seleccion de texto deshabilitado");	
-                             return false; 
-
-                            };
-                        } else if (typeof this.style.MozUserSelect != 'undefined') {
-                            this.style.MozUserSelect = 'none';
-                        } else {
-                            this.onmousedown = function() { return false; };
-                        }
-                    }); 
-                } 
-            });
- 
-          
-                
-$('p').disableSelection();
-$('h2').disableSelection();
-           
 	
 });
