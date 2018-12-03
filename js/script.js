@@ -73,8 +73,33 @@ $.fn.extend({
 $('.texto').disableSelection();
 
 // Ejercicio 4
+$(document).ready(function(){
+	$(".rojo").mouseenter(function(){
+    		$("p", this).text("Estas sobre el cuadro rojo y viene desde arriba");
+  	});
+  	$(".rojo").mouseleave(function(){
+    		$("p", this).text("");
+ 	});
+  	$(".verde").mouseenter(function(){
+    		$("p", this).text("Estas sobre el cuadro verde y viene desde abajo");
+  	});
+  	$(".verde").mouseleave(function(){
+    		$("p", this).text("");
+ 	});
+  	$(".azul").mouseenter(function(){
+    		$("p", this).text("Estas sobre el cuadro azul y viene desde abajo");
+  	});
+  	$(".azul").mouseleave(function(){
+    		$("p", this).text("");
+ 	});
+  	$(".naranjo").mouseenter(function(){
+    		$("p", this).text("Estas sobre el cuadro naranjo y viene desde arriba");
+  	});
+  	$(".naranjo").mouseleave(function(){
+    		$("p", this).text("");
+ 	});
 
-
+});
 // Ejercicio 5
 
 

@@ -11,49 +11,51 @@
 		display: flex;
 		flex-direction: column;
 	}
-	#div1{
+	.rojo{
 		height:100px;
 		width: 100px;
 		background-color: red;
 
 	}
-	#div2{
+	.azul{
 		height:100px;
 		width: 100px;
 		background-color: blue;
 
 	}
-	#div3{
+	.verde{
 		height:100px;
 		width: 100px;
 		background-color: green;
 
 	}
-	#div4{
+	.naranjo{
 		width: 100px;
 		height: 100px;
 		background-color: orange;
 
 	}
-	.arriba{
+	.cuadros1{
 		display: flex;
 		flex-direction: row-reverse;
 	}
-	.abajo{
+	.cuadros2{
 		display: flex;
 		flex-direction: row-reverse;
 	}
 </style>
 <body>
 	<div class="cuadrado">
-		<div class="arriba">
-			<div id="div4"><p></p></div>
-			<div id="div2"><p></p></div>
+		<div class="cuadros1">
+			<div class="rojo"><p></p></div>
+			<div class="naranjo"><p></p></div>
 		</div>
-		<div class="abajo">
-			<div id="div1"><p></p></div>
-			<div id="div3"><p></p></div>
+		<div class="cuadros2">
+			<div class="verde"><p></p></div>
+			<div class="azul"><p></p></div>
 		</div>
 	</div>
 </body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="js/script.js"></script>
 </html>
