@@ -1,38 +1,38 @@
 $(document).ready(function() {
 	// Ejercicio 1
 	//li style
-	$('li').mouseover(function() {
-  		 $(this).css('background-color', 'green');
+	$("li").mouseover(function() {
+  		 $(this).css("background-color", "green");
 	});
 
 	//eliminar parrafo
-	$('#parrafo').click(function(){
+	$("#parrafo").click(function(){
 		$(this).remove();
 	});
 
 	//denegar acceso al link
 	$('a').click(function(e){
 		e.preventDefault();
-		alert('Acceso Denegado');
+		alert("Acceso Denegado");
 	});
 	//borrar div y aparece borrado
-	$('#elementodiv').click(function() {
-		$(this).html('<p>Borrado</p>');
+	$("#elementodiv").click(function() {
+		$(this).html("<p>Borrado</p>");
 	});
 
 	// Ejercicio 2
-	$('input').focus(function(){
-		$(this).css('border-color', 'red');
+	$("input").focus(function(){
+		$(this).css("border-color", "red");
 	});
 
-	$('input').blur(function(){
-		$(this).css('border-color', '');
+	$("input").blur(function(){
+		$(this).css("border-color", "");
 	});
 
-	$('#formulario p').each(function(){
+	$("#formulario p").each(function(){
 		var self = $(this);
 		self.click(function(){
-			$(this).css('background-color', 'blue');
+			$(this).css("background-color", "blue");
 		});
 	});
 	
@@ -41,9 +41,9 @@ $(document).ready(function() {
 //Ejercicio 3
 
 //deshabilitar para imagen
-$('.imagen').mousedown(function(e){
+$(".imagen").mousedown(function(e){
       if(e.which == 3){
-        alert('Click derecho deshabilitado.');
+        alert("Click derecho deshabilitado.");
       }
   });
 
@@ -51,14 +51,14 @@ $('.imagen').mousedown(function(e){
 $.fn.extend({ 
     disableSelection: function() { 
         this.each(function() { 
-            if (typeof this.onselectstart != 'undefined') {
+            if (typeof this.onselectstart != "undefined") {
                     this.onselectstart = function() {
                     	alert("Seleccion de texto deshabilitado");	
                      	return false; 
 
             		};
-            }else if (typeof this.style.MozUserSelect != 'undefined') {
-                     this.style.MozUserSelect = 'none';
+            }else if (typeof this.style.MozUserSelect != "undefined") {
+                     this.style.MozUserSelect = "none";
            } else {
                     this.onmousedown = function() {
                     	return false; 
@@ -70,7 +70,7 @@ $.fn.extend({
  
           
                 
-$('.texto').disableSelection();
+$(".texto").disableSelection();
 
 // Ejercicio 4
 $(document).ready(function(){
@@ -101,20 +101,35 @@ $(document).ready(function(){
 
 });
 // Ejercicio 5
+//Al hacer onclick, no lo hacia del todo bien.
+$("#form5").on("change", function(){
+  var plato1 = $("input:radio[name=primero]:checked", "#form5").val();
+  var plato2 = $("input:radio[name=segundo]:checked", "#form5").val();
+  var postre = $("input:radio[name=postre]:checked", "#form5").val();
 
+  var cafe = $("input:checkbox[name=cafe]:checked", "#form5").val();
+
+  if(!cafe){
+    cafe = "no";
+  }else{
+    cafe = "si";
+  };
+
+  $("#menu").val("El menu que has seleccionado es: Primer Plato => " +plato1+" | Segundo Plato: => " +plato2+" | Postre: => " + postre+ " | Cafe: => " +cafe );
+});
 
 // Ejercicio 6
- $('#btnContarVocales').on('click', function(){   
+ $("#btnContarVocales").on("click", function(){   
     /*
     Se obtiene el texto ingresado, se le quitan los espacios en blanco,
     se convierte a minusculas y se encapsula en la variable 'parrafo'.             
    */
-    var parrafo= ($('#texto').val()).replace(/ /gi, '').toLowerCase();
+    var parrafo= ($("#texto").val()).replace(/ /gi, '').toLowerCase();
              
     /*
      Se crea el arreglo 'vocales' con los caracteres que vamos a contabilizar.
      */
-     var vocales = [ 'a', 'e', 'i', 'o', 'u'];
+     var vocales = [ "a", "e", "i", "o", "u"];
                  
                 /*
                 Se crean e inicializan variables para encapsular el conteo de cada una 
@@ -133,23 +148,23 @@ $(document).ready(function(){
     */
    for(var i=0; i < parrafo.length; i++){
        switch(parrafo[i]){
-            case 'a':{
+            case "a":{
                contadorA++;
                break;                          
              };
-             case 'e':{
+             case "e":{
                contadorE++;
                break;                          
              };
-              case 'i':{
+              case "i":{
                 contadorI++;
                 break;                          
               };
-               case 'o':{
+               case "o":{
                 contadorO++;
                 break;                          
               };
-                case 'u':{
+                case "u":{
                  contadorU++;
                  break;                          
               };                       
