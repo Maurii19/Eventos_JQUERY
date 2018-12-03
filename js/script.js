@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	//1
+	// Ejercicio 1
 	//li style
 	$('li').mouseover(function() {
   		 $(this).css('background-color', 'green');
@@ -20,7 +20,7 @@ $(document).ready(function() {
 		$(this).html('<p>Borrado</p>');
 	});
 
-	// 2
+	// Ejercicio 2
 	$('input').focus(function(){
 		$(this).css('border-color', 'red');
 	});
@@ -37,5 +37,123 @@ $(document).ready(function() {
 	});
 	
 
+
+// Ejercicio 4
+
+
+
+
+// Ejercicio 5
+
+
+
+// Ejercicio 6
+ $('#btnContarVocales').on('click', function(){   
+    /*
+    Se obtiene el texto ingresado, se le quitan los espacios en blanco,
+    se convierte a minusculas y se encapsula en la variable 'parrafo'.             
+   */
+    var parrafo= ($('#texto').val()).replace(/ /gi, '').toLowerCase();
+             
+    /*
+     Se crea el arreglo 'vocales' con los caracteres que vamos a contabilizar.
+     */
+     var vocales = [ 'a', 'e', 'i', 'o', 'u'];
+                 
+                /*
+                Se crean e inicializan variables para encapsular el conteo de cada una 
+                de las vocales.
+                */
+    var contadorA= 0;
+    var contadorE= 0;
+    var contadorI= 0;
+    var contadorO= 0;
+    var contadorU= 0;              
+ 
+    /*
+    Se recorre el texto encapsulado en la variable 'parrafo' y de acuerdo al
+    caracter recorrido se va aumentando el contador relacionado con cada una 
+    de las vocales segun corresponda.
+    */
+   for(var i=0; i < parrafo.length; i++){
+       switch(parrafo[i]){
+            case 'a':{
+               contadorA++;
+               break;                          
+             };
+             case 'e':{
+               contadorE++;
+               break;                          
+             };
+              case 'i':{
+                contadorI++;
+                break;                          
+              };
+               case 'o':{
+                contadorO++;
+                break;                          
+              };
+                case 'u':{
+                 contadorU++;
+                 break;                          
+              };                       
+                    };                   
+                };
+
+       var resultado= parseInt(contadorA)+parseInt(contadorE)+parseInt(contadorI)+parseInt(contadorO)+parseInt(contadorU);
+                 
+                /*
+                Se despliega en pantalla el resultado encapsulado en la variable 'resultado'
+                */
+        if (resultado%2==0){
+            $("body").css("background-color", "#99ccff");
+        }else{
+            $("body").css("background-color", "#ff6600");
+        }
+                
+
+        alert(resultado);
+
+
+
+	});     
+
+});
+
+//Ejercicio 3
+	$(document).ready(function() {
+		$(function(){
+		    $(document).bind("contextmenu",function(e){
+		    	alert("Click derecho deshabilitado");
+		        return false;
+		    });
+
+
+
+	});
+
+   $.fn.extend({ 
+                disableSelection: function() { 
+                    this.each(function() { 
+                        if (typeof this.onselectstart != 'undefined') {
+                            this.onselectstart = function() {
+                            alert("Seleccion de texto deshabilitado");	
+                             return false; 
+
+                            };
+                        } else if (typeof this.style.MozUserSelect != 'undefined') {
+                            this.style.MozUserSelect = 'none';
+                        } else {
+                            this.onmousedown = function() { return false; };
+                        }
+                    }); 
+                } 
+            });
+ 
+          
+                
+$('p').disableSelection();
+$('h2').disableSelection();
+           
 	
 });
